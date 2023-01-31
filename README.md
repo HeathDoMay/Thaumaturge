@@ -1,2 +1,2 @@
-# Magic
+# Thaumaturge
 375 Project
