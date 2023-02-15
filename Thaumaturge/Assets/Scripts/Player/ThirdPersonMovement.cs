@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
+    [Header("Input")]
+    public KeyCode sprint;
+    public KeyCode jump;
+
     [Header("References")]
     public CharacterController controller;
     public Transform cam;
@@ -51,14 +55,14 @@ public class ThirdPersonMovement : MonoBehaviour
                 controller.Move(moveDirection.normalized * speed * Time.deltaTime);
 
                 // Player will sprint while holding shift
-                if (Input.GetKey(KeyCode.LeftShift))
+                if (Input.GetKey(sprint))
                 {
-                    controller.Move(moveDirection.normalized * spritingMultipler * Time.deltaTime);
+                    controller.Move(moveDirection.normalized * speed * spritingMultipler * Time.deltaTime);
                 }
             }
 
             // Player jumps
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(jump))
             {
                 moveVelocity.y = jumpSpeed;
             }
