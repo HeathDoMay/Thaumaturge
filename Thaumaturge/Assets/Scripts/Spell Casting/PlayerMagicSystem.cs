@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class PlayerMagicSystem : MonoBehaviour
 {
-    [Header("Spells")]
-    [SerializeField] private Spell fireball;
-    [SerializeField] private Spell icicle;
+    public List<Spell> spells = new List<Spell>();
 
     [Header("Mana and Cast Time")]
     [SerializeField] private float maxMana = 100f;
@@ -33,24 +31,24 @@ public class PlayerMagicSystem : MonoBehaviour
 
     void CastSpellOne()
     {
-        Instantiate(fireball, castPoint.position, castPoint.rotation);
+        Instantiate(spells[0], castPoint.position, castPoint.rotation);
     }
 
     void CastSpellTwo()
     {
-        Instantiate(icicle, castPoint.position, castPoint.rotation);
+        Instantiate(spells[1], castPoint.position, castPoint.rotation);
     }
 
     public void SpellOne()
     {
         // player has enough mana and input key
-        bool hasEnoughMana = currentMana - fireball.spellToCast.manaCost >= 0f;
+        bool hasEnoughMana = currentMana - spells[0].spellToCast.manaCost >= 0f;
         bool isCastingMagic = Input.GetKey(KeyCode.Q);
 
         if (!castingMagic && isCastingMagic && hasEnoughMana)
         {
             castingMagic = true;
-            currentMana -= fireball.spellToCast.manaCost;
+            currentMana -= spells[0].spellToCast.manaCost;
             currentCastTimer = 0;
             CastSpellOne();
         }
@@ -79,13 +77,13 @@ public class PlayerMagicSystem : MonoBehaviour
     public void SpellTwo()
     {
         // player has enough mana and input key
-        bool hasEnoughMana = currentMana - icicle.spellToCast.manaCost >= 0f;
+        bool hasEnoughMana = currentMana - spells[1].spellToCast.manaCost >= 0f;
         bool isCastingMagic = Input.GetKey(KeyCode.E);
 
         if (!castingMagic && isCastingMagic && hasEnoughMana)
         {
             castingMagic = true;
-            currentMana -= icicle.spellToCast.manaCost;
+            currentMana -= spells[1].spellToCast.manaCost;
             currentCastTimer = 0;
             CastSpellTwo();
         }

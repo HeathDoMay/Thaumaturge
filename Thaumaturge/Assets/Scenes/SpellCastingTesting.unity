@@ -1499,6 +1499,20 @@ PrefabInstance:
       propertyPath: timeBetweenCasts
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1910405344, guid: 9b0c8dc7712a04d45822d6a9d37ea8ef, type: 3}
+      propertyPath: spells.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1910405344, guid: 9b0c8dc7712a04d45822d6a9d37ea8ef, type: 3}
+      propertyPath: spells.Array.data[0]
+      value: 
+      objectReference: {fileID: 8450734720199304887, guid: fb7dbe853521dd8418b93c26b3e0ca9f,
+        type: 3}
+    - target: {fileID: 1910405344, guid: 9b0c8dc7712a04d45822d6a9d37ea8ef, type: 3}
+      propertyPath: spells.Array.data[1]
+      value: 
+      objectReference: {fileID: 8450734720199304887, guid: 9b12ed46c3a1c0f409264e3ba876e9b4,
+        type: 3}
     - target: {fileID: 1058908587702128779, guid: 9b0c8dc7712a04d45822d6a9d37ea8ef,
         type: 3}
       propertyPath: m_LocalPosition.z
