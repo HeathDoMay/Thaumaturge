@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PlayerMagicSystem : MonoBehaviour
 {
-    public List<Spell> spells = new List<Spell>();
+    //public List<Spell> spells = new List<Spell>();
+    [Header("List Reference")]
+    public ListOfSpells list;
+    
 
     [Header("Mana and Cast Time")]
     [SerializeField] private float maxMana = 100f;
@@ -27,28 +30,40 @@ public class PlayerMagicSystem : MonoBehaviour
     {
         SpellOne();
         SpellTwo();
+
+        // replaces a spell with another and then addes the spell that was replaced
+        if (Input.GetKeyUp(KeyCode.Alpha1))
+        {
+            list.spells[0] = list.spells[1];
+            list.spells.Add(list.fireball);
+        }
+
+        if (Input.GetKeyUp(KeyCode.Alpha2))
+        {
+            list.spells[0] = list.spells[2];
+        }
     }
 
     void CastSpellOne()
     {
-        Instantiate(spells[0], castPoint.position, castPoint.rotation);
+        Instantiate(list.spells[0], castPoint.position, castPoint.rotation);
     }
 
     void CastSpellTwo()
     {
-        Instantiate(spells[1], castPoint.position, castPoint.rotation);
+        Instantiate(list.spells[1], castPoint.position, castPoint.rotation);
     }
 
     public void SpellOne()
     {
         // player has enough mana and input key
-        bool hasEnoughMana = currentMana - spells[0].spellToCast.manaCost >= 0f;
+        bool hasEnoughMana = currentMana - list.spells[0].spellToCast.manaCost >= 0f;
         bool isCastingMagic = Input.GetKey(KeyCode.Q);
 
         if (!castingMagic && isCastingMagic && hasEnoughMana)
         {
             castingMagic = true;
-            currentMana -= spells[0].spellToCast.manaCost;
+            currentMana -= list.spells[0].spellToCast.manaCost;
             currentCastTimer = 0;
             CastSpellOne();
         }
@@ -63,6 +78,7 @@ public class PlayerMagicSystem : MonoBehaviour
             }
         }
 
+        // mana recharge
         if (currentMana < maxMana && !castingMagic && !isCastingMagic)
         {
             currentMana += manaRechargeRate * Time.deltaTime;
@@ -77,13 +93,13 @@ public class PlayerMagicSystem : MonoBehaviour
     public void SpellTwo()
     {
         // player has enough mana and input key
-        bool hasEnoughMana = currentMana - spells[1].spellToCast.manaCost >= 0f;
+        bool hasEnoughMana = currentMana - list.spells[1].spellToCast.manaCost >= 0f;
         bool isCastingMagic = Input.GetKey(KeyCode.E);
 
         if (!castingMagic && isCastingMagic && hasEnoughMana)
         {
             castingMagic = true;
-            currentMana -= spells[1].spellToCast.manaCost;
+            currentMana -= list.spells[1].spellToCast.manaCost;
             currentCastTimer = 0;
             CastSpellTwo();
         }
@@ -98,6 +114,7 @@ public class PlayerMagicSystem : MonoBehaviour
             }
         }
 
+        // mana recharge
         if (currentMana < maxMana && !castingMagic && !isCastingMagic)
         {
             currentMana += manaRechargeRate * Time.deltaTime;
