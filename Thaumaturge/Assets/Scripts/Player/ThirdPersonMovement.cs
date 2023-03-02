@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
+    [Header("Input")]
+    public KeyCode sprint;
+    public KeyCode jump;
+
     [Header("References")]
     public CharacterController controller;
     public Transform cam;
@@ -38,27 +42,27 @@ public class ThirdPersonMovement : MonoBehaviour
 
         Vector3 direction = new Vector3(horizontalInput, 0f, verticalInput).normalized;
 
+        // Player movement
+        if (direction.magnitude >= 0.1f)
+        {
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+            Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            controller.Move(moveDirection.normalized * speed * Time.deltaTime);
+
+            // Player will sprint while holding shift
+            if (Input.GetKey(sprint))
+            {
+                controller.Move(moveDirection.normalized * speed * spritingMultipler * Time.deltaTime);
+            }
+        }
+
         if (controller.isGrounded)
         {
-            // Player movement
-            if (direction.magnitude >= 0.1f)
-            {
-                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-                transform.rotation = Quaternion.Euler(0f, angle, 0f); 
-
-                Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-                controller.Move(moveDirection.normalized * speed * Time.deltaTime);
-
-                // Player will sprint while holding shift
-                if (Input.GetKey(KeyCode.LeftShift))
-                {
-                    controller.Move(moveDirection.normalized * spritingMultipler * Time.deltaTime);
-                }
-            }
-
             // Player jumps
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(jump))
             {
                 moveVelocity.y = jumpSpeed;
             }
