@@ -40,7 +40,7 @@ public class Spell : MonoBehaviour
 
         if(other.gameObject.tag == "Enemy")
         {
-            Health enemyHealth = other.GetComponent<Health>();
+            HealthEnemy enemyHealth = other.GetComponent<HealthEnemy>();
             enemyHealth.TakeDamage(spellToCast.damageAmount);
         }
 
