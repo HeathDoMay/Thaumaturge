@@ -4839,7 +4839,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3150369569057449239}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.083275, y: 1.963327, z: -10.989438}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4888,6 +4888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bcbbe03cfabd5c40bff6d7029391388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellData: {fileID: 0}
   spellToCast: {fileID: 11400000, guid: 19f96b9eeaf214847a1c146849e3c78b, type: 2}
 --- !u!1 &5269875707518930004
 GameObject:

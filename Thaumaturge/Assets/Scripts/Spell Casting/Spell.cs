@@ -1,11 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(SphereCollider))]
 [RequireComponent(typeof(Rigidbody))]
-public class Spell : MonoBehaviour
+public class Spell : MonoBehaviour, Collectible
 {
+    
+    public static event HanldeScrollCollected onSpellCollected;
+    public delegate void HanldeScrollCollected(ItemData itemData);
+    
+    [Header("Inventory Data")]
+    public ItemData spellData;
+
     [Header("Spell To Cast")]
     public SpellScriptableObject spellToCast;
 
@@ -26,7 +34,7 @@ public class Spell : MonoBehaviour
 
     private void Update()
     {
-        if(spellToCast.speed > 0)
+        if (spellToCast.speed > 0)
         {
             transform.Translate(Vector3.forward * spellToCast.speed * Time.deltaTime);
         }
@@ -38,12 +46,18 @@ public class Spell : MonoBehaviour
         // apply hit particle effects
         // apply sound effects
 
-        if(other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy")
         {
             HealthEnemy enemyHealth = other.GetComponent<HealthEnemy>();
             enemyHealth.TakeDamage(spellToCast.damageAmount);
         }
 
         Destroy(this.gameObject);
+    }
+
+    public void Collect()
+    {
+        Destroy(gameObject);
+        onSpellCollected?.Invoke(spellData);
     }
 }

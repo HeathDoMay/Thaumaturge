@@ -757,6 +757,7 @@ GameObject:
   - component: {fileID: 1910405341}
   - component: {fileID: 1058908589562948961}
   - component: {fileID: 1910405344}
+  - component: {fileID: 2044627755}
   m_Layer: 0
   m_Name: ThirdPersonPlayer
   m_TagString: Player
@@ -849,13 +850,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb5fef8c5feb1b47a5d050841a5cdd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellToCast: {fileID: 8450734720199304887, guid: fb7dbe853521dd8418b93c26b3e0ca9f,
-    type: 3}
+  list: {fileID: 0}
   maxMana: 100
   currentMana: 0
   manaRechargeRate: 2
   timeBetweenCasts: 0.25
   castPoint: {fileID: 1472095585}
+--- !u!114 &2044627755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058908589562948963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ff46c7f147ca934ab780be4852f8bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1058908589603293966
 GameObject:
   m_ObjectHideFlags: 0

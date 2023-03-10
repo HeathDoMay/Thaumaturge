@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PlayerMagicSystem : MonoBehaviour
 {
-    //public List<Spell> spells = new List<Spell>();
-    [Header("List Reference")]
-    public ListOfSpells list;
+    public Spell fireball;
+    public Spell icicle;
+
+    [Header("Inventory Reference")]
+    public Scroll fireballScroll;
+    public Scroll icicleScroll;
     
 
     [Header("Mana and Cast Time")]
@@ -32,38 +35,44 @@ public class PlayerMagicSystem : MonoBehaviour
         SpellTwo();
 
         // replaces a spell with another and then addes the spell that was replaced
-        if (Input.GetKeyUp(KeyCode.Alpha1))
-        {
-            list.spells[0] = list.spells[1];
-            list.spells.Add(list.fireball);
-        }
+        // if (Input.GetKeyUp(KeyCode.Alpha1))
+        // {
+        //     list.spells[0] = list.spells[1];
+        //     list.spells.Add(list.fireball);
+        // }
 
-        if (Input.GetKeyUp(KeyCode.Alpha2))
-        {
-            list.spells[0] = list.spells[2];
-        }
+        // if (Input.GetKeyUp(KeyCode.Alpha2))
+        // {
+        //     list.spells[0] = list.spells[2];
+        // }
     }
 
     void CastSpellOne()
     {
-        Instantiate(list.spells[0], castPoint.position, castPoint.rotation);
+        if(fireballScroll.isCollected)
+        {
+            Instantiate(fireball, castPoint.position, castPoint.rotation);
+        }
     }
 
     void CastSpellTwo()
     {
-        Instantiate(list.spells[1], castPoint.position, castPoint.rotation);
+        if(icicleScroll.isCollected == true)
+        {
+            Instantiate(icicle, castPoint.position, castPoint.rotation);
+        }
     }
 
     public void SpellOne()
     {
         // player has enough mana and input key
-        bool hasEnoughMana = currentMana - list.spells[0].spellToCast.manaCost >= 0f;
+        bool hasEnoughMana = currentMana - fireball.spellToCast.manaCost >= 0f;
         bool isCastingMagic = Input.GetKey(KeyCode.Q);
 
         if (!castingMagic && isCastingMagic && hasEnoughMana)
         {
             castingMagic = true;
-            currentMana -= list.spells[0].spellToCast.manaCost;
+            currentMana -= fireball.spellToCast.manaCost;
             currentCastTimer = 0;
             CastSpellOne();
         }
@@ -93,13 +102,13 @@ public class PlayerMagicSystem : MonoBehaviour
     public void SpellTwo()
     {
         // player has enough mana and input key
-        bool hasEnoughMana = currentMana - list.spells[1].spellToCast.manaCost >= 0f;
+        bool hasEnoughMana = currentMana - icicle.spellToCast.manaCost >= 0f;
         bool isCastingMagic = Input.GetKey(KeyCode.E);
 
         if (!castingMagic && isCastingMagic && hasEnoughMana)
         {
             castingMagic = true;
-            currentMana -= list.spells[1].spellToCast.manaCost;
+            currentMana -= icicle.spellToCast.manaCost;
             currentCastTimer = 0;
             CastSpellTwo();
         }
