@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    [Header("Inventory List / Dictionary")]
     public List<InventoryItem> inventory = new List<InventoryItem>();
     public Dictionary<ItemData, InventoryItem> itemDictionary = new Dictionary<ItemData, InventoryItem>();
 
     private void OnEnable()
     {
         Scroll.onScrollCollected += Add;
-        Spell.onSpellCollected += Add;
     }
 
     private void OnDisable()
     {
         Scroll.onScrollCollected -= Add;
-        Spell.onSpellCollected -= Add;
     }
 
     public void Add(ItemData itemData)
