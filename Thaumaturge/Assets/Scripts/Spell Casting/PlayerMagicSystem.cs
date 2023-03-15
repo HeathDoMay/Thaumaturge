@@ -23,9 +23,11 @@ public class PlayerMagicSystem : MonoBehaviour
     [SerializeField] private Transform castPoint;
 
     private bool castingMagic = false;
+    private Camera cam = null;
 
     private void Awake()
     {
+        cam = Camera.main;
         currentMana = maxMana;
     }
 
@@ -33,18 +35,6 @@ public class PlayerMagicSystem : MonoBehaviour
     {
         SpellOne();
         SpellTwo();
-
-        // replaces a spell with another and then addes the spell that was replaced
-        // if (Input.GetKeyUp(KeyCode.Alpha1))
-        // {
-        //     list.spells[0] = list.spells[1];
-        //     list.spells.Add(list.fireball);
-        // }
-
-        // if (Input.GetKeyUp(KeyCode.Alpha2))
-        // {
-        //     list.spells[0] = list.spells[2];
-        // }
     }
 
     void CastSpellOne()
@@ -103,7 +93,7 @@ public class PlayerMagicSystem : MonoBehaviour
     {
         // player has enough mana and input key
         bool hasEnoughMana = currentMana - icicle.spellToCast.manaCost >= 0f;
-        bool isCastingMagic = Input.GetKey(KeyCode.E);
+        bool isCastingMagic = Input.GetKey(KeyCode.F);
 
         if (!castingMagic && isCastingMagic && hasEnoughMana)
         {

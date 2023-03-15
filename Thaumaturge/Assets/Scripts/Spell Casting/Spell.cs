@@ -5,15 +5,8 @@ using System;
 
 [RequireComponent(typeof(SphereCollider))]
 [RequireComponent(typeof(Rigidbody))]
-public class Spell : MonoBehaviour, Collectible
+public class Spell : MonoBehaviour
 {
-    
-    public static event HanldeScrollCollected onSpellCollected;
-    public delegate void HanldeScrollCollected(ItemData itemData);
-    
-    [Header("Inventory Data")]
-    public ItemData spellData;
-
     [Header("Spell To Cast")]
     public SpellScriptableObject spellToCast;
 
@@ -53,11 +46,5 @@ public class Spell : MonoBehaviour, Collectible
         }
 
         Destroy(this.gameObject);
-    }
-
-    public void Collect()
-    {
-        Destroy(gameObject);
-        onSpellCollected?.Invoke(spellData);
     }
 }
