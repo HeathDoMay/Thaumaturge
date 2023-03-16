@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class PlayerMagicSystem : MonoBehaviour
 {
-    [Header("Spells To Cast")]
-    public Spell fireball;
-    public Spell icicle;
-
     [Header("Inventory Reference")]
     public Scroll fireballScroll;
     public Scroll icicleScroll;
@@ -17,11 +13,8 @@ public class PlayerMagicSystem : MonoBehaviour
     [SerializeField] private float currentMana;
     [SerializeField] private float manaRechargeRate = 2f;
     [SerializeField] private float timeBetweenCasts = 0.25f;
+    
     private float currentCastTimer;
-
-    [Header("Spell Casting Point")]
-    [SerializeField] private Transform castPoint;
-
     private bool castingMagic = false;
 
     private void Awake()
@@ -35,34 +28,18 @@ public class PlayerMagicSystem : MonoBehaviour
         SpellTwo();
     }
 
-    void CastSpellOne()
-    {
-        if(fireballScroll.isCollected)
-        {
-            Instantiate(fireball, castPoint.position, castPoint.rotation);
-        }
-    }
-
-    void CastSpellTwo()
-    {
-        if(icicleScroll.isCollected == true)
-        {
-            Instantiate(icicle, castPoint.position, castPoint.rotation);
-        }
-    }
-
     public void SpellOne()
     {
         // player has enough mana and input key
-        bool hasEnoughMana = currentMana - fireball.spellToCast.manaCost >= 0f;
+        bool hasEnoughMana = currentMana - fireballScroll.spell.spellToCast.manaCost >= 0f;
         bool isCastingMagic = Input.GetKey(KeyCode.Q);
 
         if (!castingMagic && isCastingMagic && hasEnoughMana)
         {
             castingMagic = true;
-            currentMana -= fireball.spellToCast.manaCost;
+            currentMana -= fireballScroll.spell.spellToCast.manaCost;
             currentCastTimer = 0;
-            CastSpellOne();
+            fireballScroll.CastSpell();
         }
 
         if (castingMagic)
@@ -90,15 +67,15 @@ public class PlayerMagicSystem : MonoBehaviour
     public void SpellTwo()
     {
         // player has enough mana and input key
-        bool hasEnoughMana = currentMana - icicle.spellToCast.manaCost >= 0f;
+        bool hasEnoughMana = currentMana - icicleScroll.spell.spellToCast.manaCost >= 0f;
         bool isCastingMagic = Input.GetKey(KeyCode.F);
 
         if (!castingMagic && isCastingMagic && hasEnoughMana)
         {
             castingMagic = true;
-            currentMana -= icicle.spellToCast.manaCost;
+            currentMana -= icicleScroll.spell.spellToCast.manaCost;
             currentCastTimer = 0;
-            CastSpellTwo();
+            icicleScroll.CastSpell();
         }
 
         if (castingMagic)
