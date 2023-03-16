@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472095584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.2, z: 1.39}
+  m_LocalPosition: {x: 0, y: 2.2, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -485,7 +485,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1058908588860055893}
-  m_LocalRotation: {x: 0.10649046, y: 0.0000000042771364, z: -4.5807902e-10, w: 0.9943138}
+  m_LocalRotation: {x: 0.10649046, y: -0.0000000042771338, z: 4.580787e-10, w: 0.9943138}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -563,7 +563,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1058908589138579999}
-  m_LocalRotation: {x: 0.14253858, y: 0.000000008515345, z: -0.0000000012262865, w: 0.98978925}
+  m_LocalRotation: {x: 0.14253858, y: -0.000000008515345, z: 0.0000000012262865, w: 0.98978925}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -756,6 +756,7 @@ GameObject:
   - component: {fileID: 1058908589562948966}
   - component: {fileID: 1910405341}
   - component: {fileID: 1058908589562948961}
+  - component: {fileID: 4307509363011462436}
   - component: {fileID: 1910405344}
   - component: {fileID: 2044627755}
   m_Layer: 0
@@ -838,6 +839,19 @@ MonoBehaviour:
   spritingMultipler: 1.5
   gravity: -35
   jumpSpeed: 15
+--- !u!114 &4307509363011462436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058908589562948963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd7a69981c73a5349bddedf993fec786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: []
 --- !u!114 &1910405344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -850,12 +864,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb5fef8c5feb1b47a5d050841a5cdd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  list: {fileID: 0}
+  inventory: {fileID: 0}
+  fireballScroll: {fileID: 0}
+  icicleScroll: {fileID: 0}
   maxMana: 100
   currentMana: 0
-  manaRechargeRate: 2
-  timeBetweenCasts: 0.25
-  castPoint: {fileID: 1472095585}
+  manaRechargeRate: 8
+  timeBetweenCasts: 0.5
 --- !u!114 &2044627755
 MonoBehaviour:
   m_ObjectHideFlags: 0

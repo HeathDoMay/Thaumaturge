@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour
     [Header("Inventory List / Dictionary")]
     public List<InventoryItem> inventory = new List<InventoryItem>();
     public Dictionary<ItemData, InventoryItem> itemDictionary = new Dictionary<ItemData, InventoryItem>();
+    private InventoryItem pendingSpell;
 
     private void OnEnable()
     {
@@ -50,5 +51,10 @@ public class Inventory : MonoBehaviour
                 itemDictionary.Remove(itemData);
             }
         }
+    }
+
+    public void SelectSpell(int index)
+    {
+        pendingSpell = inventory[index];
     }
 }

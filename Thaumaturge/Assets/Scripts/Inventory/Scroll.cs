@@ -30,9 +30,11 @@ public class Scroll : MonoBehaviour, Collectible
 
     public void CastSpell()
     {
-        if(isCollected == true)
+        Instantiate(spell, castPoint.position, castPoint.rotation);
+
+        if (isCollected == true)
         {
-            Instantiate(spell, castPoint.position, castPoint.rotation);
+            
         }
     }
 

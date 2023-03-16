@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Icicle
   m_EditorClassIdentifier: 
   damageAmount: 60
-  manaCost: 5
+  manaCost: 10
   lifeTime: 2
   speed: 25
   spellRadius: 0.5

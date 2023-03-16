@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fireball
   m_EditorClassIdentifier: 
   damageAmount: 50
-  manaCost: 10
+  manaCost: 15
   lifeTime: 3
   speed: 20
   spellRadius: 1
