@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerMagicSystem : MonoBehaviour
 {
+    [Header("Spells To Cast")]
     public Spell fireball;
     public Spell icicle;
 
     [Header("Inventory Reference")]
     public Scroll fireballScroll;
     public Scroll icicleScroll;
-    
 
     [Header("Mana and Cast Time")]
     [SerializeField] private float maxMana = 100f;
@@ -23,11 +23,9 @@ public class PlayerMagicSystem : MonoBehaviour
     [SerializeField] private Transform castPoint;
 
     private bool castingMagic = false;
-    private Camera cam = null;
 
     private void Awake()
     {
-        cam = Camera.main;
         currentMana = maxMana;
     }
 
