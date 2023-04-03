@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ba122e5ce44f5349899483dd82cf39f, type: 3}
-  m_Name: IcicleScroll
+  m_Script: {fileID: 11500000, guid: 78f037580ac54e84f8c36477059579e4, type: 3}
+  m_Name: HealthPotion
   m_EditorClassIdentifier: 
-  displayName: Test Scroll Two
-  prefab: {fileID: 3970576651910117821, guid: ed97ad469afbbd743886ec6ab2dc136f, type: 3}
-  isStackable: 0
+  damageAmount: 50
+  manaCost: 20
+  lifeTime: 3
+  speed: 0
+  spellRadius: 0

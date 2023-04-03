@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class PlayerMagicSystem : MonoBehaviour
 {
+    public float playerHP = 50;
+    public float currentHP = 0;
     public Inventory inventory;
+    public HealthPotion potion;
 
     [Header("Scroll Reference")]
     public Scroll fireballScroll;
     public Scroll icicleScroll;
+    public Scroll healthScroll;
 
     [Header("Mana and Cast Time")]
     [SerializeField] private float maxMana;
@@ -20,23 +24,27 @@ public class PlayerMagicSystem : MonoBehaviour
     private bool castingMagic = false;
     private bool fireballSelected = false;
     private bool icicleSelected = false;
+    private bool healthPotionSelected = false;
 
     private void Awake()
     {
         currentMana = maxMana;
+        currentHP = playerHP;
     }
 
     private void Update()
     {
         SpellOne();
         SpellTwo();
+        HealthPotion();
 
         if (Input.GetKeyUp(KeyCode.Alpha1))
         {
             inventory.SelectSpell(0);
             fireballSelected = true;
             icicleSelected = false;
-            Debug.Log("Spell is selected");
+            healthPotionSelected = false;
+            Debug.Log("Fireball selected");
         }
 
         if (Input.GetKeyUp(KeyCode.Alpha2))
@@ -44,7 +52,17 @@ public class PlayerMagicSystem : MonoBehaviour
             inventory.SelectSpell(1);
             icicleSelected = true;
             fireballSelected = false;
-            Debug.Log("Spell is selected");
+            healthPotionSelected = false;
+            Debug.Log("Icicle selected");
+        }
+
+        if(Input.GetKeyUp(KeyCode.Alpha4))
+        {
+            inventory.SelectSpell(3);
+            healthPotionSelected = true;
+            fireballSelected = false;
+            icicleSelected = false;
+            Debug.Log("Health Potion Selcted");
         }
     }
 
@@ -96,6 +114,43 @@ public class PlayerMagicSystem : MonoBehaviour
             currentMana -= icicleScroll.spell.spellToCast.manaCost;
             currentCastTimer = 0;
             icicleScroll.CastSpell();
+        }
+
+        if (castingMagic)
+        {
+            currentCastTimer += Time.deltaTime;
+
+            if (currentCastTimer > timeBetweenCasts)
+            {
+                castingMagic = false;
+            }
+        }
+
+        // mana recharge
+        if (currentMana < maxMana && !castingMagic && !isCastingMagic)
+        {
+            currentMana += manaRechargeRate * Time.deltaTime;
+
+            if (currentMana > maxMana)
+            {
+                currentMana = maxMana;
+            }
+        }
+    }
+
+    public void HealthPotion()
+    {
+        bool hasEnoughMana = currentMana - healthScroll.spell.spellToCast.manaCost >= 0f;
+        bool isCastingMagic = Input.GetMouseButtonUp(0);
+
+        if (!castingMagic && isCastingMagic && hasEnoughMana && healthPotionSelected == true)
+        {
+            castingMagic = true;
+            currentMana -= healthScroll.spell.spellToCast.manaCost;
+            currentCastTimer = 0;
+            healthScroll.CastSpell();
+
+            currentHP = potion.healAmount + currentHP; 
         }
 
         if (castingMagic)

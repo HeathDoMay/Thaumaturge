@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ba122e5ce44f5349899483dd82cf39f, type: 3}
-  m_Name: IcicleScroll
+  m_Name: HealthScroll
   m_EditorClassIdentifier: 
-  displayName: Test Scroll Two
-  prefab: {fileID: 3970576651910117821, guid: ed97ad469afbbd743886ec6ab2dc136f, type: 3}
-  isStackable: 0
+  displayName: Health Scroll
+  prefab: {fileID: 5489588777487704180, guid: 28da07e0a577c1a478b7f4efb7ef50d7, type: 3}
+  isStackable: 1
