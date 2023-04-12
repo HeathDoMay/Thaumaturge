@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerMagicSystem : MonoBehaviour
 {
+    [Header("Health Values")]
     public float playerHP = 50;
     public float currentHP = 0;
-    public Inventory inventory;
     public HealthPotion potion;
+
+    [Header("Inventory Reference")]
+    public Inventory inventory;
 
     [Header("Scroll Reference")]
     public Scroll fireballScroll;
@@ -148,7 +151,7 @@ public class PlayerMagicSystem : MonoBehaviour
             castingMagic = true;
             currentMana -= healthScroll.spell.spellToCast.manaCost;
             currentCastTimer = 0;
-            healthScroll.CastSpell();
+            healthScroll.HealthSpell();
 
             currentHP = potion.healAmount + currentHP; 
         }

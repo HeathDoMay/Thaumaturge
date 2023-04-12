@@ -17,6 +17,7 @@ public class Scroll : MonoBehaviour, Collectible
 
     [Tooltip("This is where the spell will spawn in the world.")]
     [SerializeField] private Transform castPoint;
+    [SerializeField] private Transform healthPotionCastPoint;
 
     // if object is collected the game object will be destroyed, data collected, and isColledted is set to true
     public void Collect()
@@ -40,6 +41,6 @@ public class Scroll : MonoBehaviour, Collectible
 
     public void HealthSpell()
     {
-
+        Instantiate(spell, healthPotionCastPoint.position, healthPotionCastPoint.rotation);
     }
 }
