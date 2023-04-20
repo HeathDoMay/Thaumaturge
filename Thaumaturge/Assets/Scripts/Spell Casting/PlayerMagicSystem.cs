@@ -25,6 +25,7 @@ public class PlayerMagicSystem : MonoBehaviour
     
     private float currentCastTimer;
     private bool castingMagic = false;
+
     private bool fireballSelected = false;
     private bool icicleSelected = false;
     private bool healthPotionSelected = false;
@@ -46,6 +47,7 @@ public class PlayerMagicSystem : MonoBehaviour
             inventory.SelectSpell(0);
             fireballSelected = true;
             icicleSelected = false;
+
             healthPotionSelected = false;
             Debug.Log("Fireball selected");
         }
@@ -55,6 +57,7 @@ public class PlayerMagicSystem : MonoBehaviour
             inventory.SelectSpell(1);
             icicleSelected = true;
             fireballSelected = false;
+
             healthPotionSelected = false;
             Debug.Log("Icicle selected");
         }
@@ -64,6 +67,7 @@ public class PlayerMagicSystem : MonoBehaviour
             inventory.SelectSpell(3);
             healthPotionSelected = true;
             fireballSelected = false;
+
             icicleSelected = false;
             Debug.Log("Health Potion Selcted");
         }
