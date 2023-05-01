@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78f037580ac54e84f8c36477059579e4, type: 3}
-  m_Name: Dash
+  m_Name: IceShield
   m_EditorClassIdentifier: 
   damageAmount: 0
-  manaCost: 10
-  lifeTime: 0
+  manaCost: 40
+  lifeTime: 4
   speed: 0
   spellRadius: 0

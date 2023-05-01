@@ -7,7 +7,8 @@ using System;
 [RequireComponent(typeof(Rigidbody))]
 public class Spell : MonoBehaviour
 {
-    [Header("Spell To Cast")]
+    // make the collider a trigger
+    [Header("Spell To Cast")] 
     public SpellScriptableObject spellToCast;
 
     private SphereCollider myCollider;
@@ -16,7 +17,7 @@ public class Spell : MonoBehaviour
     private void Awake()
     {
         myCollider = GetComponent<SphereCollider>();
-        myCollider.isTrigger = true;
+        //myCollider.isTrigger = true;
         myCollider.radius = spellToCast.spellRadius;
 
         myRigidbody = GetComponent<Rigidbody>();

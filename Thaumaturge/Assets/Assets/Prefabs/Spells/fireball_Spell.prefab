@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7475473431140645807}
   - component: {fileID: 314672640568194152}
   m_Layer: 0
-  m_Name: firaball_Spell
+  m_Name: fireball_Spell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7063511088917819941}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5

@@ -15,6 +15,7 @@ public class PlayerMagicSystem : MonoBehaviour
     [Header("Scroll Reference")]
     public Scroll fireballScroll;
     public Scroll icicleScroll;
+    public Scroll shieldScroll;
     public Scroll healthScroll;
 
     [Header("Mana and Cast Time")]
@@ -28,6 +29,7 @@ public class PlayerMagicSystem : MonoBehaviour
 
     private bool fireballSelected = false;
     private bool icicleSelected = false;
+    private bool shieldSelected = false;
     private bool healthPotionSelected = false;
 
     private void Awake()
@@ -40,6 +42,7 @@ public class PlayerMagicSystem : MonoBehaviour
     {
         SpellOne();
         SpellTwo();
+        SpellThree();
         HealthPotion();
 
         if (Input.GetKeyUp(KeyCode.Alpha1))
@@ -60,6 +63,17 @@ public class PlayerMagicSystem : MonoBehaviour
 
             healthPotionSelected = false;
             Debug.Log("Icicle selected");
+        }
+
+        if(Input.GetKeyUp(KeyCode.Alpha3))
+        {
+            inventory.SelectSpell(2);
+            shieldSelected = true;
+            fireballSelected = false;
+            healthPotionSelected = false;
+            icicleSelected = false;
+
+            Debug.Log("Shield Selected");
         }
 
         if(Input.GetKeyUp(KeyCode.Alpha4))
@@ -123,6 +137,41 @@ public class PlayerMagicSystem : MonoBehaviour
             icicleScroll.CastSpell();
         }
 
+        if (castingMagic)
+        {
+            currentCastTimer += Time.deltaTime;
+
+            if (currentCastTimer > timeBetweenCasts)
+            {
+                castingMagic = false;
+            }
+        }
+
+        // mana recharge
+        if (currentMana < maxMana && !castingMagic && !isCastingMagic)
+        {
+            currentMana += manaRechargeRate * Time.deltaTime;
+
+            if (currentMana > maxMana)
+            {
+                currentMana = maxMana;
+            }
+        }
+    }
+
+    public void SpellThree()
+    {
+        bool hasEnoughMana = currentMana - shieldScroll.spell.spellToCast.manaCost >= 0f;
+        bool isCastingMagic = Input.GetMouseButtonUp(0);
+
+        if (!castingMagic && isCastingMagic && hasEnoughMana && shieldSelected == true)
+        {
+            castingMagic = true;
+            currentMana -= shieldScroll.spell.spellToCast.manaCost;
+            currentCastTimer = 0;
+            shieldScroll.CastSpell();
+        }
+        
         if (castingMagic)
         {
             currentCastTimer += Time.deltaTime;
