@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 180
+  controlID: 50
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 178
+  controlID: 122
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -202,7 +202,7 @@ MonoBehaviour:
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
-  m_LastLoadedLayoutName: Carson's Layout
+  m_LastLoadedLayoutName: 
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 0
-  controlID: 179
+  controlID: 123
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -318,22 +318,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Assets/Inventory/Scrolls
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 0
   m_StartGridSize: 64
-  m_LastFolders:
-  - Assets/Terrain
+  m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\Owner\Desktop\Git Repos\Thaumaturge\Thaumaturge
+  m_LastProjectPath: C:\Users\carso\Desktop\Unity\Thaumaturge\Thaumaturge
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 546b0000
     m_LastClickedID: 27476
-    m_ExpandedIDs: 00000000fe71000000720000027200000472000000ca9a3b
+    m_ExpandedIDs: 00000000127200001472000016720000187200001a7200001c7200001e7200002072000022720000247200002672000028720000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -361,21 +360,21 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000fe710000007200002c760000327600003a76000000ca9a3b
+    m_ExpandedIDs: ffffffff00000000127200001472000016720000187200001a7200001c7200001e7200002072000022720000247200002672000028720000ea730000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: TestScene
+      m_OriginalName: TestScene
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 29744
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 2}
     m_SearchString: 
@@ -491,9 +490,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 02720000
+      m_SelectedIDs: 30740000
       m_LastClickedID: 0
-      m_ExpandedIDs: 02faffffc0faffff4e70000056700000
+      m_ExpandedIDs: baf5fffff0f9ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -809,7 +808,7 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -5.0807595, y: 12.451658, z: -19.539661}
+    m_Target: {x: -0.29370767, y: 5.3120074, z: -11.027169}
     speed: 2
     m_Value: {x: -5.0807595, y: 12.451658, z: -19.539661}
   m_RenderMode: 0
@@ -858,11 +857,11 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.37828624, y: 0.23743904, z: -0.101046, w: 0.8890079}
+    m_Target: {x: 0.2683546, y: 0.6593291, z: -0.2736044, w: 0.6468142}
     speed: 2
-    m_Value: {x: 0.37828186, y: 0.2374363, z: -0.10104483, w: 0.8889977}
+    m_Value: {x: -0.3782862, y: -0.23743904, z: 0.101046, w: -0.88900787}
   m_Size:
-    m_Target: 0.8660254
+    m_Target: 0.82705426
     speed: 2
     m_Value: 0.8660254
   m_Ortho:
