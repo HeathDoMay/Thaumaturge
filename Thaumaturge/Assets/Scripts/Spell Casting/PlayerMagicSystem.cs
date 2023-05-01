@@ -181,4 +181,10 @@ public class PlayerMagicSystem : MonoBehaviour
             }
         }
     }
+
+    public void TakeDamage(float damage)
+    {
+        currentHP = currentHP - damage;
+        Debug.Log(currentHP);
+    }
 }
