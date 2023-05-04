@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PlayerMagicSystem : MonoBehaviour
 {
-    [Header("Health Values")]
-    public float playerHP = 50;
-    public float currentHP = 0;
+    [Header("Player Health Reference")]
+    public PlayerHealth playerHealth;
     public HealthPotion potion;
 
     [Header("Inventory Reference")]
@@ -23,7 +22,7 @@ public class PlayerMagicSystem : MonoBehaviour
     [SerializeField] private float currentMana;
     [SerializeField] private float manaRechargeRate;
     [SerializeField] private float timeBetweenCasts;
-    
+
     private float currentCastTimer;
     private bool castingMagic = false;
 
@@ -35,7 +34,6 @@ public class PlayerMagicSystem : MonoBehaviour
     private void Awake()
     {
         currentMana = maxMana;
-        currentHP = playerHP;
     }
 
     private void Update()
@@ -50,7 +48,7 @@ public class PlayerMagicSystem : MonoBehaviour
             inventory.SelectSpell(0);
             fireballSelected = true;
             icicleSelected = false;
-
+            shieldSelected = false;
             healthPotionSelected = false;
             Debug.Log("Fireball selected");
         }
@@ -60,12 +58,12 @@ public class PlayerMagicSystem : MonoBehaviour
             inventory.SelectSpell(1);
             icicleSelected = true;
             fireballSelected = false;
-
+            shieldSelected = false;
             healthPotionSelected = false;
             Debug.Log("Icicle selected");
         }
 
-        if(Input.GetKeyUp(KeyCode.Alpha3))
+        if (Input.GetKeyUp(KeyCode.Alpha3))
         {
             inventory.SelectSpell(2);
             shieldSelected = true;
@@ -76,12 +74,12 @@ public class PlayerMagicSystem : MonoBehaviour
             Debug.Log("Shield Selected");
         }
 
-        if(Input.GetKeyUp(KeyCode.Alpha4))
+        if (Input.GetKeyUp(KeyCode.Alpha4))
         {
             inventory.SelectSpell(3);
             healthPotionSelected = true;
             fireballSelected = false;
-
+            shieldSelected = false;
             icicleSelected = false;
             Debug.Log("Health Potion Selcted");
         }
@@ -171,7 +169,7 @@ public class PlayerMagicSystem : MonoBehaviour
             currentCastTimer = 0;
             shieldScroll.CastSpell();
         }
-        
+
         if (castingMagic)
         {
             currentCastTimer += Time.deltaTime;
@@ -201,12 +199,20 @@ public class PlayerMagicSystem : MonoBehaviour
 
         if (!castingMagic && isCastingMagic && hasEnoughMana && healthPotionSelected == true)
         {
-            castingMagic = true;
-            currentMana -= healthScroll.spell.spellToCast.manaCost;
-            currentCastTimer = 0;
-            healthScroll.HealthSpell();
+            if (playerHealth.canHeal == true)
+            {
+                castingMagic = true;
+                currentMana -= healthScroll.spell.spellToCast.manaCost;
+                currentCastTimer = 0;
+                healthScroll.HealthSpell();
 
-            currentHP = potion.healAmount + currentHP; 
+                playerHealth.currentHP = potion.healAmount + playerHealth.currentHP;
+                Debug.Log(playerHealth.currentHP);
+            }
+            else
+            {
+                Debug.Log("Player HP is currently MAXED: " + playerHealth.currentHP);
+            }
         }
 
         if (castingMagic)
@@ -229,11 +235,5 @@ public class PlayerMagicSystem : MonoBehaviour
                 currentMana = maxMana;
             }
         }
-    }
-
-    public void TakeDamage(float damage)
-    {
-        currentHP = currentHP - damage;
-        Debug.Log(currentHP);
     }
 }

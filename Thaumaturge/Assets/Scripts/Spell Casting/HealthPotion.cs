@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class HealthPotion : MonoBehaviour
 {
-    public float healAmount = 50;
+    public float healAmount;
 }

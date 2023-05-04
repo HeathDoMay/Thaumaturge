@@ -41,7 +41,7 @@ public class EnemySpell : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
-            PlayerMagicSystem playerHealth = other.GetComponent<PlayerMagicSystem>();
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
             playerHealth.TakeDamage(spellToCast.damageAmount);
         }
 

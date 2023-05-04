@@ -23,11 +23,44 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472095584}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2.2, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
+  m_Father: {fileID: 2157894931839316395}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &479359600630896844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2157894931839316395}
+  m_Layer: 6
+  m_Name: SpellCastPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2157894931839316395
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479359600630896844}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1472095585}
+  - {fileID: 3689513449127066914}
   m_Father: {fileID: 1058908589562948960}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -65,7 +98,7 @@ Transform:
   - {fileID: 1058908588288124108}
   - {fileID: 1058908588860055914}
   m_Father: {fileID: 1058908589562948960}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1058908587702128776
 MonoBehaviour:
@@ -225,7 +258,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1058908588288124111}
-  m_LocalRotation: {x: 0.12451125, y: 0.000000012804364, z: -0.0000000016067909, w: 0.9922182}
+  m_LocalRotation: {x: 0.12451125, y: -0.000000012804362, z: 0.0000000016067907, w: 0.9922182}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -395,7 +428,7 @@ Transform:
   m_Children:
   - {fileID: 1058908588318418235}
   m_Father: {fileID: 1058908589562948960}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1058908588459270696
 MeshFilter:
@@ -485,7 +518,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1058908588860055893}
-  m_LocalRotation: {x: 0.10649046, y: -0.0000000042771338, z: 4.580787e-10, w: 0.9943138}
+  m_LocalRotation: {x: 0.10649046, y: 0.0000000042771364, z: -4.5807902e-10, w: 0.9943138}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -563,7 +596,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1058908589138579999}
-  m_LocalRotation: {x: 0.14253858, y: -0.000000008515345, z: 0.0000000012262865, w: 0.98978925}
+  m_LocalRotation: {x: 0.14253858, y: 0.000000008515345, z: -0.0000000012262865, w: 0.98978925}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -755,8 +788,7 @@ GameObject:
   - component: {fileID: 1058908589562948960}
   - component: {fileID: 1058908589562948966}
   - component: {fileID: 1058908589562948961}
-  - component: {fileID: 4307509363011462436}
-  - component: {fileID: 1910405344}
+  - component: {fileID: 2004064909}
   - component: {fileID: 2044627755}
   - component: {fileID: 2004064908}
   m_Layer: 6
@@ -778,10 +810,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4668465850462564049}
+  - {fileID: 1547209790965497190}
+  - {fileID: 2157894931839316395}
   - {fileID: 1058908588459270698}
   - {fileID: 1058908587702128779}
-  - {fileID: 1472095585}
-  - {fileID: 3689513449127066914}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -824,7 +857,7 @@ MonoBehaviour:
   spritingMultipler: 1.5
   gravity: -35
   jumpSpeed: 15
---- !u!114 &4307509363011462436
+--- !u!114 &2004064909
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -833,41 +866,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1058908589562948963}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd7a69981c73a5349bddedf993fec786, type: 3}
+  m_Script: {fileID: 11500000, guid: d601d7be246da634494bceac74ed829c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory:
-  - itemData: {fileID: 11400000, guid: 4342d30eabec315429a4467d493972b6, type: 2}
-    stackSize: 0
-  - itemData: {fileID: 11400000, guid: 23258327e80d914468f5b9ad6c930625, type: 2}
-    stackSize: 0
-  - itemData: {fileID: 0}
-    stackSize: 0
-  - itemData: {fileID: 11400000, guid: 3c75444162e0b204596ee10702d9e4ea, type: 2}
-    stackSize: 0
---- !u!114 &1910405344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1058908589562948963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fb5fef8c5feb1b47a5d050841a5cdd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerHP: 50
+  playerHP: 100
   currentHP: 0
-  inventory: {fileID: 4307509363011462436}
-  potion: {fileID: -8593688300161975798, guid: 349d48a526274d24cab8134145cf44f7, type: 3}
-  fireballScroll: {fileID: 0}
-  icicleScroll: {fileID: 0}
-  healthScroll: {fileID: 0}
-  maxMana: 100
-  currentMana: 0
-  manaRechargeRate: 8
-  timeBetweenCasts: 0.5
+  canHeal: 0
 --- !u!114 &2044627755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -889,7 +893,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1058908589562948963}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.5
   m_Height: 1
   m_Direction: 1
@@ -1158,9 +1162,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3689513449127066914}
   m_Layer: 6
-  m_Name: HealthPotionEffect
+  m_Name: HealthEffectCastPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1171,11 +1175,119 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5198508522459755688}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.55, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2157894931839316395}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6204860388174860081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1547209790965497190}
+  - component: {fileID: 4268857934340303825}
+  m_Layer: 6
+  m_Name: SpellCasting
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1547209790965497190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6204860388174860081}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1058908589562948960}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4268857934340303825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6204860388174860081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb5fef8c5feb1b47a5d050841a5cdd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 2004064909}
+  potion: {fileID: 3271640786913593984, guid: a070a7fd376d6dc419b05040d60a1a2c, type: 3}
+  inventory: {fileID: 7139885794777798089}
+  fireballScroll: {fileID: 0}
+  icicleScroll: {fileID: 0}
+  shieldScroll: {fileID: 0}
+  healthScroll: {fileID: 0}
+  maxMana: 100
+  currentMana: 0
+  manaRechargeRate: 8
+  timeBetweenCasts: 0.5
+--- !u!1 &6574631170454863697
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4668465850462564049}
+  - component: {fileID: 7139885794777798089}
+  m_Layer: 6
+  m_Name: Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4668465850462564049
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6574631170454863697}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1058908589562948960}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7139885794777798089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6574631170454863697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd7a69981c73a5349bddedf993fec786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory:
+  - itemData: {fileID: 11400000, guid: 4342d30eabec315429a4467d493972b6, type: 2}
+    stackSize: 0
+  - itemData: {fileID: 11400000, guid: 23258327e80d914468f5b9ad6c930625, type: 2}
+    stackSize: 0
+  - itemData: {fileID: 11400000, guid: 02e51ef22d723cd47a432261fe48312f, type: 2}
+    stackSize: 0
+  - itemData: {fileID: 11400000, guid: 3c75444162e0b204596ee10702d9e4ea, type: 2}
+    stackSize: 0
