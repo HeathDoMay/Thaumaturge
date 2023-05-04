@@ -18,6 +18,8 @@ public class HealthEnemy : MonoBehaviour
         slider = this.gameObject.GetComponentInChildren<Slider>();
         currentHealth = maxHealth;
         slider.value = CalculateHealthbar();
+
+        GetComponent<PatrollingEnemyScript>().enabled = true;
     }
 
     private void Update()
@@ -40,6 +42,8 @@ public class HealthEnemy : MonoBehaviour
 
         if(currentHealth <= 0)
         {
+            this.transform.parent.gameObject.transform.GetComponentInChildren<RespawnEnemy>().canRespawn = true;
+            
             Destroy(this.gameObject);
         }
     }

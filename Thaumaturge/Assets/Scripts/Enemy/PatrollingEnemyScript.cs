@@ -6,12 +6,12 @@ using UnityEngine.AI;
 //https://docs.unity3d.com/Manual/nav-AgentPatrol.html
 public class PatrollingEnemyScript : MonoBehaviour
 {
-    [SerializeField] private Transform[] points;
+    [SerializeField] public List<Transform> points;
     private int destPoint = 0;
     private NavMeshAgent agent;
 
 
-    void Start()
+    void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
 
@@ -27,7 +27,7 @@ public class PatrollingEnemyScript : MonoBehaviour
     void GotoNextPoint()
     {
         // Returns if no points have been set up
-        if (points.Length == 0)
+        if (points.Count == 0)
             return;
 
         // Set the agent to go to the currently selected destination.
@@ -35,7 +35,7 @@ public class PatrollingEnemyScript : MonoBehaviour
 
         // Choose the next point in the array as the destination,
         // cycling to the start if necessary.
-        destPoint = (destPoint + 1) % points.Length;
+        destPoint = (destPoint + 1) % points.Count;
     }
 
 
@@ -46,4 +46,6 @@ public class PatrollingEnemyScript : MonoBehaviour
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
             GotoNextPoint();
     }
+
+    
 }
